@@ -2,7 +2,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-const { token } = require('./config.json');
 
 // Instancia de cliente con intents
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessages] });
@@ -36,7 +35,7 @@ client.once('ready', readyClient => {
 });
 
 // Conectarse al servidor de Discord
-client.login(token);
+client.login(process.env.token);
 
 // Manejar las interacciones de comandos
 client.on(Events.InteractionCreate, async interaction => {
