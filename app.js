@@ -64,10 +64,19 @@ client.on(Events.InteractionCreate, async interaction => {
 // Manejar los mensajes del chat
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  console.log(message.content.toLowerCase());
-  if(message.content.toLowerCase() === 'nicobot di hola'){
+  const msg = message.content.toLowerCase()
+    .replace(/á/g, 'a')
+    .replace(/é/g, 'e')
+    .replace(/í/g, 'i')
+    .replace(/ó/g, 'o')
+    .replace(/ú/g, 'u');
+  console.log(msg);
+  if(msg === 'nicobot di hola'){
     message.reply('Hola, chicxs 👃');
-  }else if(message.content.toLowerCase() === 'nicobot di chau'){
+  }else if(msg === 'nicobot di chau'){
     message.reply('Adios, chicxs 👃');
+  }else if(msg == 'nicobot que hora es'){
+    d = new Date();
+    message.reply(`La hora es: ${new Date(d.getTime() + (d.getTimezoneOffset() * 60000) + (3600000*-5)).toLocaleTimeString()} 👃`);
   }
 });
