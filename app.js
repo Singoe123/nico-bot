@@ -75,8 +75,13 @@ client.on('messageCreate', message => {
     message.reply('Hola, chicxs 👃');
   }else if(msg === 'nicobot di chau'){
     message.reply('Adios, chicxs 👃');
-  }else if(msg == 'nicobot que hora es'){
+  }else if(msg === 'nicobot que hora es'){
     d = new Date();
     message.reply(`La hora es: ${new Date(d.getTime() + (d.getTimezoneOffset() * 60000) + (3600000*-5)).toLocaleTimeString()} 👃`);
+  }else if(msg.startsWith('nicobot dile que se joda ')){
+    const user = message.mentions.users.first();
+    if (user) {
+      message.channel.send(`¡Jodete <@${user.id}>! 👃`);
+    }
   }
 });
