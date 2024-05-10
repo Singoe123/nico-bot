@@ -64,7 +64,7 @@ client.on(Events.InteractionCreate, async interaction => {
 // Manejar los mensajes del chat
 client.on('messageCreate', message => {
   console.log(message.content.toLowerCase());
-  if(message.content.toLowerCase() === 'nico di hola'){
+  if(message.content.toLowerCase() === 'nicobot di hola'){
     message.reply('Hola, chicxs 👃');
   }
 });
